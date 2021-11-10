@@ -3,6 +3,7 @@ const app = express();
 require("dotenv").config();
 const mongoose = require("mongoose");
 const AuthRouter = require("./routes/auth");
+const MovieRouter = require("./routes/movie");
 const UserRouter = require("./routes/user")
 const cors = require("cors");
 mongoose
@@ -24,6 +25,7 @@ app.use(express.json());
 //NORMAL ROUTES
 app.use("/api/auth", AuthRouter);
 app.use("/user", UserRouter);
+app.use("/movie", MovieRouter);
 
 
 app.listen(port, () => {
