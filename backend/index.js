@@ -4,7 +4,8 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 const AuthRouter = require("./routes/auth");
 const MovieRouter = require("./routes/movie");
-const UserRouter = require("./routes/user")
+const UserRouter = require("./routes/user");
+const ListRouter = require("./routes/list");
 const cors = require("cors");
 mongoose
   .connect(process.env.MONGO_URL, {
@@ -26,6 +27,7 @@ app.use(express.json());
 app.use("/api/auth", AuthRouter);
 app.use("/user", UserRouter);
 app.use("/movie", MovieRouter);
+app.use("/list", ListRouter);
 
 
 app.listen(port, () => {
